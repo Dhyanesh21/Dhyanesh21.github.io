@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Naga Dhyanesh R, video editor and content creator. Brand launches, campus campaigns and story-driven edits.">
+<title>Dhyanesh Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one clear scrolling page. Sticky glass nav, hero with headline numbers, then one section per kind of work, each project a glass card with its result on the left and watch buttons on the right. Single black-and-red look on purpose. */
+:root{
+  --wall-1:#B3121C; --wall-2:#5E0A10; --wall-3:#E2333D; --wall-base:#070708;
+  --glass:rgba(22,20,22,.58); --glass-strong:rgba(40,34,36,.75); --edge:rgba(255,255,255,.13); --shade:rgba(0,0,0,.55);
+  --ink:#F4F1F1; --muted:#B3AAAC; --red:#FF2E3B; --red-deep:#9E0F18;
+  --ui:"Onest", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--wall-base);color:var(--ink);font:400 16px/1.6 var(--ui);padding-inline:16px;padding-block:0}
+a{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.1;font-weight:800;letter-spacing:-.02em}
+p{margin:0}
+
+.wall{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--wall-base)}
+.wall i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 30s ease-in-out infinite alternate}
+.wall i:nth-child(1){background:var(--wall-1);width:55vmax;height:55vmax;left:-20vmax;top:-22vmax}
+.wall i:nth-child(2){background:var(--wall-2);width:60vmax;height:60vmax;right:-25vmax;top:20vmax;animation-duration:38s}
+.wall i:nth-child(3){background:var(--wall-3);width:30vmax;height:30vmax;left:20vmax;bottom:-15vmax;opacity:.3;animation-duration:44s}
+@keyframes drift{to{transform:translate(6vmax,5vmax) scale(1.1)}}
+
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid var(--edge);box-shadow:inset 0 1px 0 var(--edge),0 16px 44px var(--shade);border-radius:20px}
+
+/* nav */
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:10;max-width:1040px;margin:10px auto 0;display:flex;align-items:center;justify-content:space-between;gap:10px 18px;flex-wrap:wrap;padding:10px 16px;border-radius:999px}
+nav .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
+nav .brand::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+nav .menu{display:flex;flex-wrap:wrap;gap:4px}
+nav .menu a{text-decoration:none;font-size:.85rem;font-weight:500;color:var(--muted);padding:5px 11px;border-radius:999px}
+nav .menu a:hover{color:var(--ink);background:var(--glass-strong)}
+@media (max-width:700px){nav{border-radius:18px}nav .menu{width:100%;overflow-x:auto;flex-wrap:nowrap}}
+
+main{max-width:1040px;margin:0 auto;padding-block:44px 80px;display:flex;flex-direction:column;gap:64px}
+
+/* hero */
+.hero{padding:clamp(22px,5vw,44px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}}
+.kicker{font:600 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.hero h1{font-size:clamp(2.5rem,6.5vw,4.3rem);margin-top:12px}
+.lede{font-size:1.2rem;margin-top:14px;max-width:38ch}
+.meta{color:var(--muted);margin-top:8px;font-size:.95rem}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:6px;font:600 .88rem var(--ui);text-decoration:none;color:var(--ink);background:var(--glass-strong);border:1px solid var(--edge);padding:9px 16px;border-radius:999px;transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--red)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{background:var(--glass-strong);border:1px solid var(--edge);border-radius:16px;padding:16px}
+.stat b{display:block;font:800 2rem/1 var(--ui);font-variant-numeric:tabular-nums;color:var(--ink)}
+.stat span{display:block;margin-top:7px;font-size:.84rem;color:var(--muted);line-height:1.35}
+
+/* sections */
+section.block{display:flex;flex-direction:column;gap:18px}
+.sh{display:flex;flex-direction:column;gap:8px;max-width:65ch}
+.sh h2{font-size:clamp(1.6rem,3.6vw,2.2rem)}
+.sh p{color:var(--muted)}
+
+/* project card */
+.card{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px 30px;padding:clamp(20px,3.5vw,30px);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+@media (max-width:680px){.card{grid-template-columns:minmax(0,1fr)}}
+.result b{display:block;font:800 clamp(2.2rem,5vw,2.9rem)/1 var(--ui);font-variant-numeric:tabular-nums;color:var(--red)}
+.result span{display:block;margin-top:8px;font-size:.9rem;color:var(--muted);line-height:1.4}
+.info{display:flex;flex-direction:column;gap:10px;min-width:0}
+.info h3{font-size:1.35rem}
+.role{font:500 .78rem var(--mono);color:var(--muted);letter-spacing:.02em}
+.info p{max-width:64ch;color:#DDD7D8}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font:500 .74rem var(--mono);color:var(--muted);border:1px solid var(--edge);padding:4px 10px;border-radius:999px}
+.watch{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.watch a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font:600 .86rem var(--ui);color:#fff;background:var(--red-deep);border:1px solid rgba(255,46,59,.45);padding:8px 14px;border-radius:999px;transition:background .15s}
+.watch a:hover{background:var(--red)}
+.watch a::before{content:"";border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent}
+
+/* carousel of project cards */
+.rail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.rail-ctrl{display:flex;align-items:center;gap:8px}
+.rail-ctrl button{font:600 .85rem var(--ui);color:var(--ink);background:var(--glass-strong);border:1px solid var(--edge);border-radius:999px;padding:8px 16px;cursor:pointer}
+.rail-ctrl button:hover:not(:disabled){border-color:var(--red)}
+.rail-ctrl button:disabled{opacity:.4;cursor:default}
+.rail-ctrl button:focus-visible,.rail:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.rail-count{font:600 .8rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;margin-right:4px}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-block:4px 14px;scrollbar-width:thin;scrollbar-color:var(--red-deep) transparent;border-radius:20px}
+.rail .card{flex:0 0 100%;scroll-snap-align:start;grid-template-columns:220px minmax(0,1fr);align-content:start;gap:16px 34px;min-height:300px}
+.rail .card > .kicker{grid-column:1/-1}
+.rail .card .result b{font-size:clamp(2.6rem,6vw,3.6rem)}
+@media (max-width:680px){.rail .card{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.rail{scroll-behavior:auto}}
+
+.contact{padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:18px}
+.contact h2{font-size:clamp(1.6rem,3.6vw,2.2rem)}
+.cgrid{display:flex;flex-wrap:wrap;gap:16px 40px}
+.cgrid div{display:flex;flex-direction:column;gap:4px}
+.cgrid .v{font:500 1rem var(--mono);user-select:all}
+.label{font:600 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+footer{max-width:1040px;margin:0 auto;padding-bottom:30px;color:var(--muted);font-size:.82rem}
+
+/* editor: monitor over timeline */
+.editor{overflow:hidden}
+.ed-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-bottom:1px solid var(--edge);background:rgba(255,255,255,.03)}
+.lights{display:flex;gap:7px}.lights i{width:12px;height:12px;border-radius:50%}
+.lights i:nth-child(1){background:#FF5F57}.lights i:nth-child(2){background:#FEBC2E}.lights i:nth-child(3){background:#28C840}
+.ed-bar span{font:600 .8rem var(--ui);color:var(--muted)}
+.monitor{padding:18px;display:flex;flex-direction:column;gap:12px}
+.screen{background:linear-gradient(160deg,#0A0A0B,#140708);border:1px solid var(--edge);border-radius:14px;padding:clamp(20px,4vw,34px);
+  display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 30px;min-height:260px;align-items:start;position:relative;overflow:hidden}
+.screen::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 100% 0%,rgba(255,46,59,.18),transparent 60%);pointer-events:none}
+@media (max-width:680px){.screen{grid-template-columns:minmax(0,1fr)}}
+.screen > *{position:relative;z-index:1}
+.screen.swap > *{animation:fade .4s ease}
+@keyframes fade{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sc-chip{display:inline-block;font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--red-deep);padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.controls .cb{display:flex;gap:8px}
+.controls button{font:600 .85rem var(--ui);color:var(--ink);background:var(--glass-strong);border:1px solid var(--edge);border-radius:999px;padding:8px 16px;cursor:pointer}
+.controls button:hover{border-color:var(--red)}
+.controls button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.controls .hint{font-size:.85rem;color:var(--muted)}
+.timeline{border-top:1px solid var(--edge);padding:14px 18px 20px;overflow-x:auto}
+.tl{min-width:640px;position:relative}
+.ruler{display:grid;grid-template-columns:140px 1fr;margin-bottom:8px}
+.ticks{display:flex;justify-content:space-between;font:500 .66rem var(--mono);color:var(--muted);border-bottom:1px solid var(--edge);padding-bottom:5px;font-variant-numeric:tabular-nums}
+.track{display:grid;grid-template-columns:140px 1fr;align-items:center;height:54px}
+.tname{display:flex;align-items:center;gap:8px;font:600 .82rem var(--ui);color:var(--ink)}
+.tname em{font:700 .66rem var(--mono);font-style:normal;color:var(--muted);border:1px solid var(--edge);border-radius:4px;padding:2px 5px}
+.lane{position:relative;height:42px;background:rgba(255,255,255,.04);border:1px solid var(--edge);border-radius:10px}
+.clip{position:absolute;top:4px;bottom:4px;border-radius:7px;border:0;padding:0 12px;text-align:left;cursor:pointer;color:#fff;font:600 .8rem/1 var(--ui);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--red-deep);box-shadow:inset 0 1px 0 rgba(255,255,255,.25);transition:background .2s,box-shadow .2s}
+.clip:hover{background:#C2141F}
+.clip[aria-pressed="true"]{background:var(--red);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 0 2px #fff}
+.clip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lanes{position:absolute;top:0;bottom:0;left:140px;right:0;pointer-events:none}
+.playhead{position:absolute;top:-2px;bottom:6px;width:2px;background:#fff;transition:left .5s cubic-bezier(.4,.1,.2,1)}
+.playhead::before{content:"";position:absolute;top:-5px;left:-5px;width:12px;height:12px;background:#fff;border-radius:2px 2px 6px 6px}
+@media (prefers-reduced-motion:reduce){.playhead{transition:none}.screen.swap > *{animation:none}}
+@media (prefers-reduced-motion:reduce){.wall i{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wall" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<nav class="glass" aria-label="Sections">
+  <span class="brand">Dhyanesh R</span>
+  <div class="menu">
+    <a href="#timeline">Timeline</a>
+    <a href="#work">All work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <header class="glass hero">
+    <div>
+      <span class="kicker">Video editor · Content creator</span>
+      <h1>Naga Dhyanesh R</h1>
+      <p class="lede">I edit videos people stop scrolling for: brand launches, campus campaigns and stories people still rewatch.</p>
+      <p class="meta">M.Sc. Data Science (Integrated), Thiagarajar College of Engineering, Madurai · 2027</p>
+      <div class="btns">
+        <a class="btn primary" href="#timeline">Open the timeline</a>
+        <a class="btn" href="https://www.linkedin.com/in/dhyanesh-r" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="stats" aria-label="Headline results">
+      <div class="stat"><b>3M+</b><span>views on one video for a brand launch</span></div>
+      <div class="stat"><b>200K</b><span>views on the Techutsav'26 promo reel</span></div>
+      <div class="stat"><b>800</b><span>Techutsav registrations, the highest ever</span></div>
+      <div class="stat"><b>50</b><span>students taught video editing</span></div>
+    </div>
+  </header>
+
+  <section class="block" id="timeline" aria-labelledby="h-tl">
+    <div class="sh"><span class="kicker">Timeline</span><h2 id="h-tl">My work, as an edit</h2><p>Each piece of work is a clip. Click one to play it in the monitor.</p></div>
+    <div class="glass editor">
+      <div class="ed-bar"><div class="lights" aria-hidden="true"><i></i><i></i><i></i></div><span>Portfolio Sequence</span><span id="count"></span></div>
+      <div class="monitor">
+        <div class="screen" id="screen" aria-live="polite"></div>
+        <div class="controls">
+          <div class="cb"><button type="button" id="prev">◀ Previous</button><button type="button" id="next">Next ▶</button></div>
+          <span class="hint">Or click any clip below</span>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl">
+          <div class="ruler"><span></span><div class="ticks"><span>00:00</span><span>00:10</span><span>00:20</span><span>00:30</span><span>00:40</span><span>00:50</span><span>01:00</span></div></div>
+          <div id="tracks"></div>
+          <div class="lanes"><div class="playhead" id="ph"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work" aria-labelledby="h-work">
+    <div class="rail-head">
+      <div class="sh"><span class="kicker">All work</span><h2 id="h-work">The work behind the numbers</h2></div>
+      <div class="rail-ctrl">
+        <span class="rail-count" id="railCount" aria-live="polite"></span>
+        <button type="button" id="railPrev" aria-label="Previous">◀ Previous</button>
+        <button type="button" id="railNext" aria-label="Next">Next ▶</button>
+      </div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Work highlights, scroll sideways">
+
+      <article class="glass card">
+        <span class="kicker">01 · Client work</span>
+        <div class="result"><b>3M+</b><span>views on one video; ~80K across the other three</span></div>
+        <div class="info">
+          <h3>Launch campaign for a clothing brand</h3>
+          <span class="role">Editor · 4 videos · paid client</span>
+          <p>Two videos rode popular trends to reach new viewers fast. The others built a recurring character, so people connected with a personality and not just the clothes. I cut every video for a strong hook in the first seconds and pacing that keeps people watching.</p>
+          <div class="tags"><span>Premiere Pro</span><span>CapCut</span><span>Trend formats</span><span>Character content</span></div>
+          <div class="watch">
+            <a href="https://www.instagram.com/p/C1etbhCxd-H/" target="_blank" rel="noopener">Video 1</a>
+            <a href="https://www.instagram.com/genzclothing__/reel/C1SCcKkRxIQ/" target="_blank" rel="noopener">Video 2</a>
+            <a href="https://www.instagram.com/genzclothing__/reel/C1POaiWxlDl/" target="_blank" rel="noopener">Video 3</a>
+            <a href="https://www.instagram.com/genzclothing__/reel/C0_uruBLTgt/" target="_blank" rel="noopener">Video 4</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">01 · Client work</span>
+        <div class="result"><b>Paid</b><span>work for several clients</span></div>
+        <div class="info">
+          <h3>Freelance editing</h3>
+          <span class="role">Freelance editor</span>
+          <p>Short-form edits for clients on paid projects, alongside my own Instagram content.</p>
+          <div class="tags"><span>Premiere Pro</span><span>CapCut</span><span>Short-form</span></div>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">02 · Techutsav'26</span>
+        <div class="result"><b>200K</b><span>views on the promo reel</span></div>
+        <div class="info">
+          <h3>Techutsav'26 promo reel</h3>
+          <span class="role">Director and editor · team shot it</span>
+          <p>The reel for TCE's inter-college technical symposium. It made Instagram our top source of registrations and caused a clear spike in sign-ups and enquiries.</p>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">02 · Techutsav'26</span>
+        <div class="result"><b>800</b><span>registrations, the highest in the event's history</span></div>
+        <div class="info">
+          <h3>Techutsav'26 branding campaign</h3>
+          <span class="role">Branding Lead · led the team</span>
+          <p>Ran publicity across Instagram, WhatsApp, email, posters and campus visits, with automated replies to comments and enquiry emails so no interested student was left waiting.</p>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">03 · Films</span>
+        <div class="result"><b>4 yrs</b><span>of one batch's journey in one film</span></div>
+        <div class="info">
+          <h3>Music Club farewell film</h3>
+          <span class="role">Editor · my personal favourite</span>
+          <p>The outgoing batch's whole journey, from first year to last, cut as a story instead of a slideshow. Chapters mark each phase, and transitions, music and pacing carry the shift from the excitement of joining to the weight of saying goodbye.</p>
+          <div class="tags"><span>Premiere Pro</span><span>Chapters</span><span>Music-led pacing</span></div>
+          <div class="watch"><a href="https://youtu.be/iDh65c9CFiA" target="_blank" rel="noopener">Watch on YouTube</a></div>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">04 · Tools I built</span>
+        <div class="result"><b>&lt;1 min</b><span>per video, vs ~30 minutes captioning by hand</span></div>
+        <div class="info">
+          <h3>Captiv: AI captioning for editors</h3>
+          <span class="role">Built it myself · live web app</span>
+          <p>Captioning by hand was the slowest part of my editing, so I built a tool to fix it. Captiv transcribes a video with AI and exports it with captions burned in. I shared it with early users and improved it from their feedback.</p>
+          <div class="tags"><span>AI speech-to-text</span><span>In-browser export</span></div>
+          <div class="watch"><a href="https://captiv-ev6y.onrender.com/" target="_blank" rel="noopener">Try Captiv live</a></div>
+        </div>
+      </article>
+
+      <article class="glass card">
+        <span class="kicker">05 · Community</span>
+        <div class="result"><b>50</b><span>students across 2 workshops</span></div>
+        <div class="info">
+          <h3>Video editing workshops</h3>
+          <span class="role">Craft Master, Visual Arts Club</span>
+          <p>Taught editing basics to fellow students at TCE.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="glass contact" id="contact" aria-labelledby="h-c">
+    <span class="kicker">Contact</span>
+    <h2 id="h-c">Let's make something people watch</h2>
+    <div class="cgrid">
+      <div><span class="label">Email</span><span class="v">dhyaneshr21@gmail.com</span></div>
+      <div><span class="label">Phone</span><span class="v">+91 95007 72622</span></div>
+      <div><span class="label">Based in</span><span class="v">Madurai, Tamil Nadu</span></div>
+    </div>
+  </section>
+</main>
+<footer>Naga Dhyanesh R · 2026</footer>
+
+<script>
+const L=(u,t)=>({u,t});
+const TRACKS=[{id:"V1",name:"Client work"},{id:"V2",name:"Techutsav'26"},{id:"V3",name:"Films"},{id:"FX",name:"Tools"},{id:"A1",name:"Community"}];
+const CLIPS=[
+ {t:"V1",x:0,w:60,name:"Brand launch campaign",stat:"3M+",statL:"views on one video; ~80K across the other three",role:"Editor · 4 videos · paid client",
+  body:"Two videos rode popular trends to reach new viewers fast. The others built a recurring character, so people connected with a personality and not just the clothes.",
+  links:[L("https://www.instagram.com/p/C1etbhCxd-H/","Watch video 1"),L("https://www.instagram.com/genzclothing__/reel/C1SCcKkRxIQ/","Watch video 2"),L("https://www.instagram.com/genzclothing__/reel/C1POaiWxlDl/","Watch video 3"),L("https://www.instagram.com/genzclothing__/reel/C0_uruBLTgt/","Watch video 4")]},
+ {t:"V1",x:62,w:38,name:"Freelance editing",stat:"Paid",statL:"work for several clients",role:"Freelance editor",
+  body:"Short-form edits for clients on paid projects, alongside my own Instagram content.",links:[]},
+ {t:"V2",x:0,w:48,name:"Promo reel",stat:"200K",statL:"views on Instagram",role:"Director and editor · team shot it",
+  body:"The reel made Instagram our top source of registrations and caused a clear spike in sign-ups and enquiries.",links:[]},
+ {t:"V2",x:50,w:50,name:"Branding campaign",stat:"800",statL:"registrations, the highest ever",role:"Branding Lead · led the team",
+  body:"Ran publicity across Instagram, WhatsApp, email, posters and campus visits, with automated replies to comments and enquiry emails.",links:[]},
+ {t:"V3",x:0,w:70,name:"Music Club farewell film",stat:"4 yrs",statL:"of one batch's journey in one film",role:"Editor · my personal favourite",
+  body:"The batch's whole journey from first year to last, cut as a story in chapters, with transitions, music and pacing carrying the shift from excitement to goodbye.",
+  links:[L("https://youtu.be/iDh65c9CFiA","Watch on YouTube")]},
+ {t:"FX",x:0,w:55,name:"Captiv captioning app",stat:"<1 min",statL:"per video, vs ~30 min by hand",role:"Built it myself · live web app",
+  body:"Captioning by hand was the slowest part of my editing, so I built an AI tool that transcribes a video and exports it with captions burned in.",
+  links:[L("https://captiv-ev6y.onrender.com/","Try Captiv live")]},
+ {t:"A1",x:0,w:58,name:"Editing workshops",stat:"50",statL:"students across 2 workshops",role:"Craft Master, Visual Arts Club",
+  body:"Taught video editing basics to fellow students at TCE.",links:[]}
+];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tname=Object.fromEntries(TRACKS.map(t=>[t.id,t.name]));
+$("tracks").innerHTML=TRACKS.map(tr=>`<div class="track"><div class="tname"><em>${tr.id}</em>${tr.name}</div><div class="lane">`+
+  CLIPS.map((c,i)=>c.t===tr.id?`<button type="button" class="clip" data-i="${i}" style="left:${c.x}%;width:${c.w}%" aria-pressed="false">${esc(c.name)}</button>`:"").join("")+`</div></div>`).join("");
+let cur=0;
+function show(i){
+  cur=(i+CLIPS.length)%CLIPS.length; const c=CLIPS[cur];
+  const s=$("screen");
+  s.innerHTML=`<div class="result"><b>${esc(c.stat)}</b><span>${esc(c.statL)}</span></div>
+   <div class="info"><span class="sc-chip">${c.t} · ${esc(tname[c.t])}</span><h3>${esc(c.name)}</h3><span class="role">${esc(c.role)}</span><p>${esc(c.body)}</p>
+   ${c.links.length?`<div class="watch">${c.links.map(x=>`<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")}</div>`:""}</div>`;
+  s.classList.remove("swap"); void s.offsetWidth; s.classList.add("swap");
+  $("count").textContent=`Clip ${cur+1} of ${CLIPS.length}`;
+  document.querySelectorAll(".clip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.i==cur));
+  $("ph").style.left=`${c.x+c.w/2}%`;
+}
+document.querySelectorAll(".clip").forEach(b=>b.addEventListener("click",()=>show(+b.dataset.i)));
+$("prev").onclick=()=>show(cur-1);
+$("next").onclick=()=>show(cur+1);
+show(0);
+
+// carousel
+const rail=$("rail"), cards=[...rail.querySelectorAll(".card")];
+function railIndex(){const x=rail.scrollLeft;let best=0,d=1e9;cards.forEach((c,i)=>{const dd=Math.abs(c.offsetLeft-rail.offsetLeft-x);if(dd<d){d=dd;best=i}});return best}
+function railUpdate(){const i=railIndex();$("railCount").textContent=`${i+1} / ${cards.length}`;
+  $("railPrev").disabled=rail.scrollLeft<=2;$("railNext").disabled=rail.scrollLeft+rail.clientWidth>=rail.scrollWidth-2}
+function railGo(step){const i=Math.max(0,Math.min(cards.length-1,railIndex()+step));rail.scrollTo({left:cards[i].offsetLeft-rail.offsetLeft})}
+$("railPrev").onclick=()=>railGo(-1);
+$("railNext").onclick=()=>railGo(1);
+rail.addEventListener("scroll",()=>requestAnimationFrame(railUpdate),{passive:true});
+rail.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();railGo(1)}if(e.key==="ArrowLeft"){e.preventDefault();railGo(-1)}});
+window.addEventListener("resize",railUpdate);
+railUpdate();
+</script>
+
+</body>
+</html>
